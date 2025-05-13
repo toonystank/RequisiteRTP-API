@@ -1,4 +1,4 @@
-package com.toonystank.requisitertp.hooks;
+package com.toonystank.hooks;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

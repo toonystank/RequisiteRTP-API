@@ -1,6 +1,5 @@
-package com.toonystank.requisitertp.effect;
+package com.toonystank.effect;
 
-import com.toonystank.requisitertp.utils.MessageUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,18 +26,6 @@ public abstract class BaseEffect {
     public abstract void applyEffect(Player player, int tickCount);
 
     public abstract boolean hasToStop(Player player, boolean firstCall);
-
-    public void setToFile(String path, Object object) {
-        try {
-            EffectManager.getEffectManager().set(path, object);
-        } catch (IOException e) {
-            MessageUtils.error(String.format(
-                    "Failed to set value in %s at %s with value %s",
-                    EffectManager.getEffectManager().fileName, path, object
-            ));
-            e.printStackTrace();
-        }
-    }
 
     @AllArgsConstructor
     @NoArgsConstructor
