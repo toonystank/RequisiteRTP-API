@@ -16,11 +16,11 @@ public abstract class BaseTimedEffect extends BaseEffect {
     }
 
     private static int getInterval(Type type) {
-        return switch (type) {
-            case SECONDS -> 20;
-            case MINUTES -> 1200;
-            default -> 2;
-        };
+        switch (type) {
+            case SECONDS: return 20;
+            case MINUTES: return 1200;
+            default: return 2;
+        }
     }
 
     public abstract void applyTimedEffect(Player player, int tickCount);
