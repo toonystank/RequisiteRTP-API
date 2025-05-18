@@ -78,8 +78,9 @@ public abstract class Hook {
         private boolean enabled;
 
         /**
-         * The permission node that allows players to bypass the hook's restrictions
-         * (e.g., "requisitertp.bypass.griefprevention").
+         * The permission node that allows players to bypass the hook's restrictions.
+         * This should be a high-level permission node, as all permissions will automatically
+         * be prefixed with "RequisiteRTP." (e.g., "bypass.griefprevention").
          */
         private String bypassPermission;
     }
