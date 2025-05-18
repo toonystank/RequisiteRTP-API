@@ -13,7 +13,7 @@ package com.toonystank.hooks;
  * manager.registerHook(
  *     "MyPluginHook",
  *     true,
- *     "requisitertp.bypass.myplugin",
+ *     "bypass.myplugin",
  *     MyPluginHook.class
  * );
  * </pre>
@@ -52,7 +52,9 @@ public interface HooksManager {
      * @param name             The unique name of the hook (e.g., "GriefPrevention").
      * @param isEnabled        Whether the hook is enabled and should be used during RTP checks.
      * @param bypassPermission The permission node that allows players to bypass the hook's restrictions
-     *                         (e.g., "requisitertp.bypass.griefprevention").
+     *                         (e.g., "bypass.griefprevention"). Note that RequisiteRTP will
+     *                         automatically prepend "RequisiteRTP." to this node, so a permission node of
+     *                         bypass.myplugin will be checked as RequisiteRTP.bypass.myplugin.
      * @param hookClass        The class implementing the hook's logic, extending {@link Hook}.
      * @return The registered {@link Hook} instance, or null if registration fails or the hook is disabled.
      * @throws IllegalArgumentException If any parameter is invalid (e.g., null name or hookClass).

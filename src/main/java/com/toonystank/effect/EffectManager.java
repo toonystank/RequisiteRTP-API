@@ -20,7 +20,7 @@ import org.bukkit.entity.Player;
  *     true,
  *     Arrays.asList("Applies a glowing effect during RTP"),
  *     null,
- *     "requisitertp.effect.glow",
+ *     "effect.glow", // This will be automatically checked as RequisiteRTP.effect.glow
  *     GlowEffect.class
  * );
  * </pre>
@@ -62,7 +62,9 @@ public interface EffectManager {
      * @param enabled        Whether the effect is enabled and can be applied.
      * @param description    A list of strings describing the effect, used for display purposes.
      * @param commandsToRun  An optional list of commands to execute when the effect is applied (nullable).
-     * @param permissionNode The permission node required to use the effect (e.g., "requisitertp.effect.spiral").
+     * @param permissionNode The permission node required to use the effect (e.g., "effect.spiral").
+     *                       Note that RequisiteRTP will automatically prepend "RequisiteRTP." to this node, so
+     *                       a permission of effect.glow will be checked as RequisiteRTP.effect.glow.
      * @param effectClass    The class implementing the effect's logic, extending {@link BaseEffect}.
      * @return The registered {@link BaseEffect.Effect} object.
      * @throws IOException If an error occurs while accessing or saving the effect's configuration.

@@ -19,7 +19,7 @@ import org.bukkit.entity.Player;
  *         super(hookData);
  *     }
  *
- *     @Override
+ *     &#064;Override
  *     public boolean isAllowed(Player player, Location location) {
  *         // Custom logic to check if RTP is allowed
  *         return true;
@@ -27,7 +27,7 @@ import org.bukkit.entity.Player;
  * }
  * </pre>
  *
- * @see HooksManager
+ * &#064;see HooksManager
  */
 @Setter
 @Getter
@@ -79,8 +79,9 @@ public abstract class Hook {
 
         /**
          * The permission node that allows players to bypass the hook's restrictions.
-         * This should be a high-level permission node, as all permissions will automatically
-         * be prefixed with "RequisiteRTP." (e.g., "bypass.griefprevention").
+         * This should be a high-level permission node, as all permissions will automatically be
+         * prefixed with "RequisiteRTP." (e.g., "bypass.griefprevention" will be checked as
+         * RequisiteRTP.bypass.griefprevention).
          */
         private String bypassPermission;
     }
