@@ -39,6 +39,31 @@ public interface EffectManager {
      * @throws IllegalStateException If the RequisiteRTP plugin is not initialized or the manager is not available.
      */
     static EffectManager getInstance() {
+        throw ThrowError();
+    }
+
+    /**
+     * Retrieves a string value from the configuration file.
+     * This method is used to access configuration settings related to effects.
+     *
+     * @param path The path to the configuration setting.
+     * @param defaultValue The default value to return if the setting is not found.
+     * @return The string value from the configuration or the default value if not found.
+     */
+    static String getString(String path, String defaultValue) {
+        throw ThrowError();
+    }
+    static boolean getBoolean(String path, boolean defaultValue) {
+        throw ThrowError();
+    }
+    static int getInt(String path, int defaultValue) {
+        throw ThrowError();
+    }
+    static List<String> getStringList(String path, List<String> defaultValue) {
+        throw ThrowError();
+    }
+
+    static IllegalArgumentException ThrowError(){
         throw new IllegalStateException("EffectManager instance not initialized. Ensure RequisiteRTP plugin is enabled.");
     }
 
@@ -118,4 +143,6 @@ public interface EffectManager {
      *         (true if effects were applied successfully, false if cancelled or failed).
      */
     CompletionStage<Boolean> runSuitableEffect(Player player);
+
+
 }
