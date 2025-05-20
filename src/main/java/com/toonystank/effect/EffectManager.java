@@ -3,6 +3,8 @@ package com.toonystank.effect;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.bukkit.entity.Player;
 
 /**
@@ -49,17 +51,30 @@ public interface EffectManager {
      * @param path The path to the configuration setting.
      * @param defaultValue The default value to return if the setting is not found.
      * @return The string value from the configuration or the default value if not found.
+     * @throws IOException If an error occurs while accessing the configuration file.
      */
-    static String getString(String path, String defaultValue) {
+    static String getStringValue(String path, String defaultValue) throws IOException {
         throw ThrowError();
     }
-    static boolean getBoolean(String path, boolean defaultValue) {
+    static boolean getBooleanValue(String path, boolean defaultValue) throws IOException {
         throw ThrowError();
     }
-    static int getInt(String path, int defaultValue) {
+    static int getIntValue(String path, int defaultValue) throws IOException {
         throw ThrowError();
     }
-    static List<String> getStringList(String path, List<String> defaultValue) {
+    static List<String> getStringListValue(String path, List<String> defaultValue) throws IOException {
+        throw ThrowError();
+    }
+
+    /**
+     * Retrieves an effect instance based on the provided {@link BaseEffect.Effect} object.
+     * This method is used to retrieve the loaded effect class instance.
+     *
+     * @param effect The effect configuration to retrieve the instance for.
+     * @return The {@link BaseEffect} instance associated with the provided effect configuration.
+     * @throws IllegalStateException If the RequisiteRTP plugin is not initialized or the manager is not available.
+     */
+    static <T extends BaseEffect> T getEffectInstance(BaseEffect.Effect effect) {
         throw ThrowError();
     }
 
