@@ -25,6 +25,16 @@ public abstract class BaseEffect {
         this.effect = effect;
     }
 
+    /**
+     * Use this to load all the necessary data for the effect.
+     */
+    public abstract void load();
+
+    /**
+     * Use this to unload all the data from the effect.
+     */
+    public abstract void clearData();
+
     public abstract void applyEffect(Player player, int tickCount);
 
     public abstract boolean hasToStop(Player player, boolean firstCall);
